@@ -68,7 +68,6 @@ for page in pages:
                             xlocation_first_letter = None
                             ylocation_first_letter = None
                         #after checking first_char_found flag, now check if this current char is a letter and not a word ending char
-                        # if isinstance(char_obj, LTChar) and (is_word_ending_char(char_obj.get_text()) != True):
                         if isinstance(char_obj, LTText) and (is_letter(char_obj.get_text()) == True):
                             #if this is the first letter in a word, flip the first_char_found flag, concat to string, and record the location of this first letter.
                             if first_char_found == False:
@@ -77,9 +76,6 @@ for page in pages:
                                 xlocation_first_letter = char_obj.bbox[0]
                                 ylocation_first_letter = char_obj.bbox[3]
                             #or else, this is just a letter in the middle of the word. So just concat to string.
-                            # elif char_obj.get_text() == "’":
-                            #     print("HELLO")
-                            #     break
                             else:
                                 string_word += char_obj.get_text()
                                 xlocation_last_letter = char_obj.bbox[0]
@@ -91,33 +87,6 @@ for page in pages:
                             ylocation_average = (ylocation_first_letter + ylocation_last_letter) / 2
                             print("At %r is the word: %s" % ((xlocation_average, ylocation_average), string_word))
                             first_char_found = False
-
-
-                            
-                            
-""" concatenated_string = ""
-for char in list_of_chars:
-    concatenated_string += char
-print(concatenated_string) """
-
-
-'''
-
-initialize word string
-first_char_found = false
-when first char is found, concat. it to the string and save the bbox of it. 
-first_char_found = true. 
-keep going through all chars until a diff symbol is found (a space, a comma, anything not a char)
-    when a diff symbol is found, the word has ended. print out the word,
-    and the bbox of the first letter in the word.
-    first_char_found = false
-start over again.
-'''
-                            
-
-""" if isinstance(lobj, LTTextBox):
-            x, y, text = lobj.bbox[0], lobj.bbox[3], lobj.get_text()
-            print('At %r is text: %s' % ((x, y), text)) """
 
 
     
