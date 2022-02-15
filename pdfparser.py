@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 import logging
 from io import BytesIO
-from .psparser import PSStackParser
-from .psparser import PSSyntaxError
-from .psparser import PSEOF
-from .psparser import KWD
-from .psparser import STRICT
-from .pdftypes import PDFException
-from .pdftypes import PDFStream
-from .pdftypes import PDFObjRef
-from .pdftypes import int_value
-from .pdftypes import dict_value
+from psparser import PSStackParser
+from psparser import PSSyntaxError
+from psparser import PSEOF
+from psparser import KWD
+from psparser import STRICT
+from pdftypes import PDFException
+from pdftypes import PDFStream
+from pdftypes import PDFObjRef
+from pdftypes import int_value
+from pdftypes import dict_value
 
 
 ##  Exceptions

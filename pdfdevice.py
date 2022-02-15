@@ -1,10 +1,10 @@
 #!/usr/bin/env python
-from .utils import mult_matrix
-from .utils import translate_matrix
-from .utils import q
-from .utils import bbox2str
-from .utils import isnumber
-from .pdffont import PDFUnicodeNotDefined
+from utils import mult_matrix
+from utils import translate_matrix
+from utils import q
+from utils import bbox2str
+from utils import isnumber
+from pdffont import PDFUnicodeNotDefined
 
 
 ##  PDFDevice

@@ -1,12 +1,13 @@
-from pdfminer.layout import LAParams, LTTextBox, LTChar,  LTTextLine, LTText, LTImage, LTCurve, LTFigure, LTRect, LTAnno
-from pdfminer.pdfpage import PDFPage
-from pdfminer.pdfinterp import PDFResourceManager
-from pdfminer.pdfinterp import PDFPageInterpreter
-from pdfminer.converter import PDFPageAggregator
+import pdfplumber
+from layout import LAParams, LTTextBox, LTChar,  LTTextLine, LTText, LTImage, LTCurve, LTFigure, LTRect, LTAnno
+from pdfpage import PDFPage
+from pdfinterp import PDFResourceManager
+from pdfinterp import PDFPageInterpreter
+from converter import PDFPageAggregator
 
 #PDFPlumber
 import numpy as np
-import pdfplumber
+
 
 
 
@@ -20,7 +21,7 @@ def is_letter(char):
 
 #IMPORTANT: enter main file name here as a path to a pdf. Include the .pdf ending. It is a string.
 #sample path to file: "C:/Users/aland/Documents/Rice Documents/Rice Freshman Year/PDF Parsing/bubbleballot01.pdf"
-main_file = "/Users/arianawang/Documents/Rice/Sample/CHIL bubbleballot01 (1).pdf"
+main_file = "/Users/btw4/Desktop/Junior Year/CSCI 390/Unisyn_paper_ballot.pdf"
 
 
 
@@ -56,6 +57,7 @@ for page in pages:
                 if isinstance(box_obj, LTTextLine):
                     """ x, y, text = box_obj.bbox[0], box_obj.bbox[3], box_obj.get_text()
                     print('At %r is text: %s' % ((x, y), text)) """
+                    #print(box_obj.get_text)
                     #preliminary flag to start process of finding a singular word
                     first_char_found = False
                     #go through all the characters inthe textline.
@@ -73,6 +75,8 @@ for page in pages:
                                 string_word += char_obj.get_text()
                                 xlocation_first_letter = char_obj.bbox[0]
                                 ylocation_first_letter = char_obj.bbox[3]
+                                xlocation_last_letter = char_obj.bbox[0]
+                                ylocation_last_letter = char_obj.bbox[3]
                             #or else, this is just a letter in the middle of the word. So just concat to string.
                             else:
                                 string_word += char_obj.get_text()
@@ -81,6 +85,7 @@ for page in pages:
                         #if this current character is a word ending character (space, comma, etc add more!), then now we print word and location, and start again.
                         # elif first_char_found == True and is_word_ending_char(char_obj.get_text()):
                         elif (isinstance(char_obj, LTText)) and (first_char_found == True):
+                            #print("%r is the first letter in %s, %r is the last letter" % (xlocation_first_letter, string_word, xlocation_last_letter))
                             xlocation_average = (xlocation_first_letter + xlocation_last_letter) / 2
                             ylocation_average = (ylocation_first_letter + ylocation_last_letter) / 2
                             print("At %r is the word: %s" % ((xlocation_average, ylocation_average), string_word))
@@ -108,6 +113,7 @@ colors = [ "gray", "red", "blue", "green" ]
 for i, curve in enumerate(report.curves):
     # If the curve detected is not a line (i.e. two points on the curve detected)
     if len(curve["points"]) != 2:
+        print ("curve found!")
         # The color chosen
         stroke = colors[i%len(colors)]
         x_values = 0
@@ -122,7 +128,7 @@ for i, curve in enumerate(report.curves):
         im.draw_circles(midpoint, radius=3, stroke=stroke, fill="white")
 
 # Saves the new ballot
-im.save("/Users/arianawang/Documents/Rice/Sample/CHIL bubbleballot01 testthree.png", format="PNG")
+#im.save("/Users/btw4/Desktop/Junior Year/CSCI 390/ess test.png", format="PNG")
 
 # Github link: https://github.com/jsvine/pdfplumber/blob/stable/examples/notebooks/ag-energy-roundup-curves.ipynb
 

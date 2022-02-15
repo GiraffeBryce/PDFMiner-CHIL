@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import re
 import logging
-from .utils import choplist
+from utils import choplist
 
 STRICT = 0
 

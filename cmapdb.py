@@ -19,15 +19,15 @@ import codecs
 import marshal
 import struct
 import logging
-from .psparser import PSStackParser
-from .psparser import PSSyntaxError
-from .psparser import PSEOF
-from .psparser import PSLiteral
-from .psparser import literal_name
-from .psparser import KWD
-from .encodingdb import name2unicode
-from .utils import choplist
-from .utils import nunpack
+from psparser import PSStackParser
+from psparser import PSSyntaxError
+from psparser import PSEOF
+from psparser import PSLiteral
+from psparser import literal_name
+from psparser import KWD
+from encodingdb import name2unicode
+from utils import choplist
+from utils import nunpack
 
 
 class CMapError(Exception):
