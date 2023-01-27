@@ -46,7 +46,7 @@ class PDFParser(PSStackParser):
         return
 
     def set_document(self, doc):
-        """Associates the parser with a PDFDocument object."""
+        """Associates the parser with a  object."""
         self.doc = doc
         return
 
