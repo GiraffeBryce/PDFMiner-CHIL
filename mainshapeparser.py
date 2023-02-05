@@ -10,7 +10,7 @@ from pdfpage import PDFPage
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/Hart_paper_ballot.pdf"
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/ClearBallot_paper_ballot2.pdf"
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/Unisyn_paper_ballot.pdf"
-main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/ESS_paper_ballot2.pdf"
+main_file = "./sample ballots/Hart_paper_ballot.pdf"
 
 fp = open(main_file, 'rb')
 pages = PDFPage.get_pages(fp)

@@ -10,7 +10,7 @@ from mainshapeparser import rect_parse, image_parse, line_parse
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/Hart_paper_ballot.pdf"
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/ClearBallot_paper_ballot2.pdf"
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/Unisyn_paper_ballot.pdf"
-main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/ESS_paper_ballot2.pdf"
+main_file = "./sample ballots/Hart_paper_ballot.pdf"
 
 # threshold = 35 # original
 threshold = 60
@@ -32,4 +32,4 @@ print("letters parsed")
 # im.save("/Users/shannonshao/Desktop/COMP490/Ballots/Hart_paper_ballot.png", format="PNG")
 # im.save("/Users/shannonshao/Desktop/COMP490/Ballots/ClearBallot_paper_ballot2.png", format="PNG")
 # im.save("/Users/shannonshao/Desktop/COMP490/Ballots/Unisyn_paper_ballot.png", format="PNG")
-im.save("/Users/shannonshao/Desktop/COMP490/Ballots/ESS_paper_ballot23.png", format="PNG")
+im.save("./sample_ballots_output/hart_ballot.png", format="PNG")
