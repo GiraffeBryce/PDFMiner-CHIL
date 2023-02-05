@@ -27,7 +27,7 @@ def is_letter(char):
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/Hart_paper_ballot.pdf"
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/ClearBallot_paper_ballot2.pdf"
 # main_file = "/Users/shannonshao/Desktop/COMP490/Ballots/Unisyn_paper_ballot.pdf"
-main_file = "./sample ballots/Hart_paper_ballot.pdf"
+main_file = "./sample_ballots/Hart_paper_ballot.pdf"
 
 
 
