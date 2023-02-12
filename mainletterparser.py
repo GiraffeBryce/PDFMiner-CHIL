@@ -129,7 +129,10 @@ def letter_parse(file, threshold, image, bubble_found):
                                     if (possible_bubble_left and possible_bubble_right and (len(string_word) == 1) and not (string_word.__eq__('r')) and not (string_word.__eq__('I')) and not (string_word.__eq__('1')) and not (string_word.__eq__('T'))):
                                         print("one")
                                         im.draw_circle(center_prev, 5, fill = (0, 0, 0, 0), stroke="blue")
-                                    im.draw_line(((xlocation_first_letter, ylocation_first_letter), (xlocation_last_letter, ylocation_last_letter)), stroke="brown")
+                                    # Comment out to see the lines
+                                    # im.draw_line(((xlocation_first_letter, ylocation_first_letter), (xlocation_last_letter, ylocation_last_letter)), stroke="brown")
+                                    # Comment out to see the rects
+                                    im.draw_rect((xlocation_first_letter, ylocation_first_letter, xlocation_last_letter, ylocation_last_letter))
                                     string_word = ""
                                     first_char_found = False
 
