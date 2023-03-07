@@ -105,14 +105,12 @@ for page in pages:
 # Loading the file
 # sample_ballot = "/Users/arianawang/Documents/Rice/Sample/CHIL bubbleballot01 (1).pdf"
 
-def curve_parse(file, locations):
+def curve_parse(file, im, letterLocation):
     sample_ballot = file
 
     bubble = False
     # Choosing page of ballot to run the code. Input different index for diff pages.
     report = pdfplumber.open(sample_ballot).pages[0]
-    # Create the image to save
-    im = report.to_image()
 
     # Colors that the coordinates will be mapped in
     colors = [ "gray", "red", "blue", "green" ]
@@ -124,8 +122,8 @@ def curve_parse(file, locations):
 
 
         # Checking whether the curve is within words
-        bool found = false
-        for one_location in locations:
+        found = False
+        for one_location in letterLocation:
             # Checking all the four x,y coordinates with the point
             if curve["points"][0][0] > one_location[0] and curve["points"][0][0] < one_location[2] and curve["points"][0][1] > one_location[1] and curve["points"][0][1] < one_location[3]:
                 continue

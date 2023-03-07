@@ -24,14 +24,13 @@ def is_letter(char):
     else:
         return False
 
-def letter_parse(file, threshold, image, bubble_found):
+def letter_parse(file, threshold, bubble_found):
 
     main_file = file
 
     main_threshold = threshold
 
     #Main Code for PDFMINER TEXT LOCATION. GO TO LINE 97 for CURVE DETECTION
-
 
     fp = open(main_file, 'rb')
 
@@ -46,7 +45,7 @@ def letter_parse(file, threshold, image, bubble_found):
     # Choosing page of ballot to run the code. Input different index for diff pages.
     report = pdfplumber.open(sample_ballot).pages[0]
     # Create the image to save
-    im = image
+    im = report.to_image()
     num = 0
     
     # Create an array to hold all the locations of the letters
@@ -143,4 +142,4 @@ def letter_parse(file, threshold, image, bubble_found):
                                     first_char_found = False
 
     #im.save("/Users/btw4/Desktop/Junior Year/CSCI 390/new ballots/letter altona28.png", format="PNG")
-    return im
+    return im, letterLocation
